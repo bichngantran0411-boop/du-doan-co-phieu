@@ -1,3 +1,4 @@
+!pip install yfinance pandas numpy matplotlib scikit-learn tensorflow
 
 # Import
 import yfinance as yf
@@ -11,7 +12,19 @@ seed = 42
 np.random.seed(seed)
 tf.random.set_seed(seed)
 random.seed(seed)
-df = yf.download("ACB.VN", start="2018-01-01", end="2026-10-14")
+# Import
+import yfinance as yf
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+# FIX SEED (ổn định kết quả)
+import random
+import tensorflow as tf
+seed = 42
+np.random.seed(seed)
+tf.random.set_seed(seed)
+random.seed(seed)
+df = yf.download("VNM.VN", start="2018-01-01", end="2026-10-14")
 data = df[['Close']].values
 train_size = int(0.8 * len(data))
 train_data = data[:train_size]
